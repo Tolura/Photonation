@@ -1,7 +1,7 @@
 -- Original Script by insectgang
 
 -- Change if Theo also stops updating
-local Provider = "https://imtheo.lol/Offsets/Offsets.hpp"
+local Provider = "https://offsets.imtheo.lol/Offsets.hpp"
 
 hook.add("init", "offset_create", function()
     http.get(Provider, function(body, status)
