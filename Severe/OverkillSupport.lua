@@ -1,7 +1,6 @@
 --!optimize 2
 
 -- how make autoexecute stable???
-task.wait(2.5) 
 if not game then return end
 if game.GameId ~= 8420998291 then return end
 
@@ -22,7 +21,6 @@ local Ignored = {
 local Aimparts = {"LowerTorso", "LeftLowerLeg", "LeftUpperLeg", "RightLowerLeg", "RightUpperLeg", "LeftLowerArm", "LeftUpperArm", "RightLowerArm", "RightUpperArm", "LeftHand", "RightHand"}
 local FullParts = {"Head", "UpperTorso", "LowerTorso", "HumanoidRootPart", "LeftUpperArm", "LeftLowerArm", "LeftHand", "RightUpperArm", "RightLowerArm", "RightHand", "LeftUpperLeg", "LeftLowerLeg", "LeftFoot", "RightUpperLeg", "RightLowerLeg", "RightFoot"}
 
-task.wait(3)
 RunService.PostLocal:Connect(function()
     local Children = Workspace:GetChildren()
     if type(Children) ~= "table" then return end
