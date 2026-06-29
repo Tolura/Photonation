@@ -1,6 +1,7 @@
 --!optimize 2
 
 -- how make autoexecute stable???
+task.wait(2) 
 if not game then return end
 if game.GameId ~= 8420998291 then return end
 
