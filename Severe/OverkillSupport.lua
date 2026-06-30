@@ -1,5 +1,6 @@
 --!optimize 2
 
+task.wait(2)
 if not game then return end
 if game.GameId ~= 8420998291 then return end
 
@@ -24,6 +25,7 @@ local Client
 local Loaded = false
 local Scan = 0
 
+task.wait(2)
 RunService.PreLocal:Connect(function()
     local Children = Workspace:GetChildren()
     if type(Children) ~= "table" then return end
