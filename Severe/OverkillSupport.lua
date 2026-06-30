@@ -21,6 +21,7 @@ local Aimparts = {"LowerTorso", "LeftLowerLeg", "LeftUpperLeg", "RightLowerLeg",
 local FullParts = {"Head", "UpperTorso", "LowerTorso", "HumanoidRootPart", "LeftUpperArm", "LeftLowerArm", "LeftHand", "RightUpperArm", "RightLowerArm", "RightHand", "LeftUpperLeg", "LeftLowerLeg", "LeftFoot", "RightUpperLeg", "RightLowerLeg", "RightFoot"}
 
 local Client
+local Loaded = false
 local Scan = 0
 
 RunService.PreLocal:Connect(function()
@@ -155,7 +156,7 @@ RunService.PreLocal:Connect(function()
     end
     end
 
-    if Client then
+    if Client and not Loaded then
         local Head = Client:FindFirstChild("Head")
         local HRP = Client:FindFirstChild("HumanoidRootPart")
         local Humanoid = Client:FindFirstChild("Humanoid")
@@ -183,6 +184,7 @@ RunService.PreLocal:Connect(function()
                 RightLeg = Client:FindFirstChild("RightUpperLeg") or Torso,
                 LeftFoot = Client:FindFirstChild("LeftUpperLeg") or Torso,
             })
+            Loaded = true
         end
     end
 end)
