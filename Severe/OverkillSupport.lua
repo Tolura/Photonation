@@ -24,7 +24,7 @@ local FullParts = {"Head", "UpperTorso", "LowerTorso", "HumanoidRootPart", "Left
 
 local Client
 
-RunService.PostModel:Connect(function()
+RunService.PreModel:Connect(function()
     local Children = Workspace:GetChildren()
     if type(Children) ~= "table" then return end
 
