@@ -22,11 +22,15 @@ local Ignored = {
 local Aimparts = {"LowerTorso", "LeftLowerLeg", "LeftUpperLeg", "RightLowerLeg", "RightUpperLeg", "LeftLowerArm", "LeftUpperArm", "RightLowerArm", "RightUpperArm", "LeftHand", "RightHand"}
 local FullParts = {"Head", "UpperTorso", "LowerTorso", "HumanoidRootPart", "LeftUpperArm", "LeftLowerArm", "LeftHand", "RightUpperArm", "RightLowerArm", "RightHand", "LeftUpperLeg", "LeftLowerLeg", "LeftFoot", "RightUpperLeg", "RightLowerLeg", "RightFoot"}
 
-RunService.PostLocal:Connect(function()
+local Client
+local Scan = 0
+
+RunService.PreModel:Connect(function()
     local Children = Workspace:GetChildren()
     if type(Children) ~= "table" then return end
 
-    local Client
+    if os.clock() >= Scan then
+    Scan = os.clock() + 0.25
 
     local Highlights, Players = 0, 0
     for _, Container in Children do
@@ -148,6 +152,7 @@ RunService.PostLocal:Connect(function()
             remove_model_data(Model)
             Tracked[Character] = nil
         end
+    end
     end
 
     if Client then
