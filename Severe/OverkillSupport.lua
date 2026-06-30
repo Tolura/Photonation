@@ -23,14 +23,10 @@ local Aimparts = {"LowerTorso", "LeftLowerLeg", "LeftUpperLeg", "RightLowerLeg",
 local FullParts = {"Head", "UpperTorso", "LowerTorso", "HumanoidRootPart", "LeftUpperArm", "LeftLowerArm", "LeftHand", "RightUpperArm", "RightLowerArm", "RightHand", "LeftUpperLeg", "LeftLowerLeg", "LeftFoot", "RightUpperLeg", "RightLowerLeg", "RightFoot"}
 
 local Client
-local Scan = 0
 
 RunService.PostModel:Connect(function()
     local Children = Workspace:GetChildren()
     if type(Children) ~= "table" then return end
-
-    if os.clock() >= Scan then
-    Scan = os.clock() + 0.25
 
     local Highlights, Players = 0, 0
     for _, Container in Children do
