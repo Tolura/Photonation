@@ -57,6 +57,7 @@ RunService.PreLocal:Connect(function()
                     if Character and Character:IsA("Model") then
                         local Head = Character:FindFirstChild("Head")
                         local HRP = Character:FindFirstChild("HumanoidRootPart")
+                        local Humanoid = Character:FindFirstChild("Humanoid")
                         local Hitbox = Character:FindFirstChild("HitboxHead") and Character:FindFirstChild("HitboxTorso")
                         if Head and HRP and not Hitbox then
                             Client = Character
@@ -94,12 +95,12 @@ RunService.PreLocal:Connect(function()
                             local Model = tostring(List)
 
                             add_model_data({
-                                Username = Dummy and "Dummy" or "Enemy",
-                                Displayname = Dummy and "Dummy" or "Enemy",
+                                Username = Dummy and "Dummy" .. tostring(List) or "Enemy" .. tostring(List),
+                                Displayname = Dummy and "Dummy" ..tostring(List) or "Enemy" .. tostring(List),
                                 Userid = math.random(2, 10000),
                                 Character = Character,
                                 PrimaryPart = HRP,
-                                Humanoid = HRP,
+                                Humanoid = Humanoid,
                                 Head = Head,
                                 Torso = Torso,
                                 UpperTorso = Torso,
@@ -157,7 +158,8 @@ RunService.PreLocal:Connect(function()
     if Client then
         local Head = Client:FindFirstChild("Head")
         local HRP = Client:FindFirstChild("HumanoidRootPart")
-        if Head and HRP then
+        local Humanoid = Client:FindFirstChild("Humanoid")
+        if Humanoid then
             local Torso = Client:FindFirstChild("UpperTorso") or Client:FindFirstChild("LowerTorso") or HRP
             override_local_data({
                 LocalPlayer = Client,
@@ -165,7 +167,7 @@ RunService.PreLocal:Connect(function()
                 Username = "Local",
                 Displayname = "Local",
                 Userid = 1,
-                Humanoid = HRP,
+                Humanoid = Humanoid,
                 Health = 100,
                 MaxHealth = 100,
                 RigType = 1,
