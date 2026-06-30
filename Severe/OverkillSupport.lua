@@ -1,6 +1,5 @@
 --!optimize 2
 
--- how make autoexecute stable???
 if not game then return end
 if game.GameId ~= 8420998291 then return end
 
@@ -28,6 +27,7 @@ RunService.PreLocal:Connect(function()
     local Children = Workspace:GetChildren()
     if type(Children) ~= "table" then return end
 
+    -- stability fix
     if os.clock() >= Scan then
     Scan = os.clock() + 0.25
 
