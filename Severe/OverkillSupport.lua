@@ -1,5 +1,7 @@
 --!optimize 2
 
+if not game then return end
+task.wait(2)
 local Workspace = game:GetService("Workspace")
 
 local Tracked, List = {}, 0
