@@ -186,4 +186,5 @@ RunService.PostLocal:Connect(function()
     end
 end)
 
+task.wait(2)
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Tolura/Photonation/refs/heads/main/Severe/OverkillSupport.lua"))()')
