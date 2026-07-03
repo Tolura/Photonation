@@ -20,7 +20,7 @@ local Client
 local Loaded = false
 local Scan = 0
 
-RunService.PreLocal:Connect(function()
+RunService.PostLocal:Connect(function()
     local Children = Workspace:GetChildren()
     if type(Children) ~= "table" then return end
 
