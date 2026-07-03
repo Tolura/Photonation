@@ -1,11 +1,6 @@
 --!optimize 2
 
-task.wait(2)
-if not game then return end
-if game.GameId ~= 8420998291 then return end
-
 local Workspace = game:GetService("Workspace")
-if not Workspace then return end -- just this single line in photon & serverhop reload works but nahhh severe just had to make scripts unload
 
 local Tracked, List = {}, 0
 
@@ -25,12 +20,11 @@ local Client
 local Loaded = false
 local Scan = 0
 
-task.wait(2)
 RunService.PreLocal:Connect(function()
     local Children = Workspace:GetChildren()
     if type(Children) ~= "table" then return end
 
-    -- stability fix
+    -- Stability fix
     if os.clock() >= Scan then
     Scan = os.clock() + 0.25
 
@@ -190,3 +184,5 @@ RunService.PreLocal:Connect(function()
         end
     end
 end)
+
+queue_on_teleport("loadstring(game:HttpGet("https://raw.githubusercontent.com/Tolura/Photonation/refs/heads/main/Severe/OverkillSupport.lua"))()")
