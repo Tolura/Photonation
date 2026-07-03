@@ -1,6 +1,5 @@
 --!optimize 2
 
-task.wait(2)
 local Workspace = game:GetService("Workspace")
 
 local Tracked, List = {}, 0
@@ -62,7 +61,7 @@ RunService.PostLocal:Connect(function()
                         end
                         local Dummy = string.find(Character.Name, "Dummy_") ~= nil
                         local Enemy = Dummy or not Checked or Character:FindFirstChild("EnemyHighlight") ~= nil
-                        if Enemy and Hitbox and Head and HRP and not Tracked[Character] then
+                        if Enemy and Hitbox and Head and HRP and Humanoid and not Tracked[Character] then
                             local Torso = Character:FindFirstChild("UpperTorso") or Character:FindFirstChild("LowerTorso") or HRP
                             local Parts = {
                                 Head = Head,
@@ -185,6 +184,4 @@ RunService.PostLocal:Connect(function()
         end
     end
 end)
-
-task.wait(2)
 queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Tolura/Photonation/refs/heads/main/Severe/OverkillSupport.lua"))()')
